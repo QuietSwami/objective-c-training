@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3D210A2320016C003B34B8 /* PlayerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D21092320016C003B34B8 /* PlayerDetailsViewController.m */; };
+		2D3D210D232019A1003B34B8 /* GamePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D210C232019A1003B34B8 /* GamePickerViewController.m */; };
 		2D8606CE231E5FA200F1046D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8606CD231E5FA200F1046D /* AppDelegate.m */; };
 		2D8606D1231E5FA200F1046D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8606D0231E5FA200F1046D /* ViewController.m */; };
 		2D8606D4231E5FA200F1046D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D8606D2231E5FA200F1046D /* Main.storyboard */; };
@@ -19,7 +21,6 @@
 		2D860703231E6D2400F1046D /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D860702231E6D2400F1046D /* PlayersViewController.m */; };
 		2D860706231E6F3000F1046D /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D860705231E6F3000F1046D /* Player.m */; };
 		2DC70729231FB16F00D745FF /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC70728231FB16F00D745FF /* PlayerCell.m */; };
-		2DC7072F231FC55E00D745FF /* PlayerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC7072E231FC55E00D745FF /* PlayerDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D3D21082320016C003B34B8 /* PlayerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailsViewController.h; sourceTree = "<group>"; };
+		2D3D21092320016C003B34B8 /* PlayerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailsViewController.m; sourceTree = "<group>"; };
+		2D3D210B232019A1003B34B8 /* GamePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamePickerViewController.h; sourceTree = "<group>"; };
+		2D3D210C232019A1003B34B8 /* GamePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamePickerViewController.m; sourceTree = "<group>"; };
 		2D8606C9231E5FA200F1046D /* Ratings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ratings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8606CC231E5FA200F1046D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D8606CD231E5FA200F1046D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,8 +68,6 @@
 		2D860705231E6F3000F1046D /* Player.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		2DC70727231FB16F00D745FF /* PlayerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		2DC70728231FB16F00D745FF /* PlayerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
-		2DC7072D231FC55E00D745FF /* PlayerDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlayerDetailsViewController.h; path = ../PlayerDetailsViewController.h; sourceTree = "<group>"; };
-		2DC7072E231FC55E00D745FF /* PlayerDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PlayerDetailsViewController.m; path = ../PlayerDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +120,8 @@
 			children = (
 				2D8606FE231E692200F1046D /* Images */,
 				2D8606CC231E5FA200F1046D /* AppDelegate.h */,
-				2DC7072D231FC55E00D745FF /* PlayerDetailsViewController.h */,
-				2DC7072E231FC55E00D745FF /* PlayerDetailsViewController.m */,
+				2D3D21092320016C003B34B8 /* PlayerDetailsViewController.m */,
+				2D3D21082320016C003B34B8 /* PlayerDetailsViewController.h */,
 				2D8606CD231E5FA200F1046D /* AppDelegate.m */,
 				2D8606CF231E5FA200F1046D /* ViewController.h */,
 				2D8606D0231E5FA200F1046D /* ViewController.m */,
@@ -133,6 +136,8 @@
 				2D860702231E6D2400F1046D /* PlayersViewController.m */,
 				2DC70727231FB16F00D745FF /* PlayerCell.h */,
 				2DC70728231FB16F00D745FF /* PlayerCell.m */,
+				2D3D210B232019A1003B34B8 /* GamePickerViewController.h */,
+				2D3D210C232019A1003B34B8 /* GamePickerViewController.m */,
 			);
 			path = Ratings;
 			sourceTree = "<group>";
@@ -290,9 +295,10 @@
 				2D8606DC231E5FA300F1046D /* main.m in Sources */,
 				2DC70729231FB16F00D745FF /* PlayerCell.m in Sources */,
 				2D8606CE231E5FA200F1046D /* AppDelegate.m in Sources */,
+				2D3D210D232019A1003B34B8 /* GamePickerViewController.m in Sources */,
 				2D860703231E6D2400F1046D /* PlayersViewController.m in Sources */,
 				2D860706231E6F3000F1046D /* Player.m in Sources */,
-				2DC7072F231FC55E00D745FF /* PlayerDetailsViewController.m in Sources */,
+				2D3D210A2320016C003B34B8 /* PlayerDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
