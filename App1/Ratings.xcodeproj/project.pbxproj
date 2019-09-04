@@ -18,6 +18,7 @@
 		2D8606FF231E692200F1046D /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 2D8606FE231E692200F1046D /* Images */; };
 		2D860703231E6D2400F1046D /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D860702231E6D2400F1046D /* PlayersViewController.m */; };
 		2D860706231E6F3000F1046D /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D860705231E6F3000F1046D /* Player.m */; };
+		2DC70729231FB16F00D745FF /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC70728231FB16F00D745FF /* PlayerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		2D860702231E6D2400F1046D /* PlayersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
 		2D860704231E6F3000F1046D /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		2D860705231E6F3000F1046D /* Player.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		2DC70727231FB16F00D745FF /* PlayerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
+		2DC70728231FB16F00D745FF /* PlayerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				2D860704231E6F3000F1046D /* Player.h */,
 				2D860701231E6D2400F1046D /* PlayersViewController.h */,
 				2D860702231E6D2400F1046D /* PlayersViewController.m */,
+				2DC70727231FB16F00D745FF /* PlayerCell.h */,
+				2DC70728231FB16F00D745FF /* PlayerCell.m */,
 			);
 			path = Ratings;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			files = (
 				2D8606D1231E5FA200F1046D /* ViewController.m in Sources */,
 				2D8606DC231E5FA300F1046D /* main.m in Sources */,
+				2DC70729231FB16F00D745FF /* PlayerCell.m in Sources */,
 				2D8606CE231E5FA200F1046D /* AppDelegate.m in Sources */,
 				2D860703231E6D2400F1046D /* PlayersViewController.m in Sources */,
 				2D860706231E6F3000F1046D /* Player.m in Sources */,

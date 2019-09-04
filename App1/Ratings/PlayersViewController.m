@@ -8,6 +8,7 @@
 
 #import "PlayersViewController.h"
 #import "Player.h"
+#import "PlayerCell.h"
 
 
 @interface PlayersViewController ()
@@ -31,7 +32,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1    ;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -41,22 +42,28 @@
 }
 
 
+- (UIImage *)imageForRating:(int)rating
+{
+    switch (rating) {
+        case 1: return [UIImage imageNamed:@"1StarSmall"];
+        case 2: return [UIImage imageNamed:@"2StarsSmall"];
+        case 3: return [UIImage imageNamed:@"3StarsSmall"];
+        case 4: return [UIImage imageNamed:@"4StarsSmall"];
+        case 5: return [UIImage imageNamed:@"5StarsSmall"];
+    }
+    return nil;
+}
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Entrei na seccao critica");
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:@"PlayerCell"];
-    }
+    PlayerCell *cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
     
-    NSLog(@"%@", indexPath);
     Player *player = (self.players)[indexPath.row];
-    NSString *a = player.name;
-    NSLog(@"%@", a);
-    cell.textLabel.text = player.name;
-    cell.detailTextLabel.text = player.game;
+    cell.nameLabel.text = player.name;
+    cell.gameLabel.text = player.game;
+    cell.ratingImageView.image = [self imageForRating:player.rating];
     
     return cell;
 }
