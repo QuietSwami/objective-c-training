@@ -32,7 +32,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1    ;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -59,6 +59,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PlayerCell *cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:@"PlayerCell"];
+    }
     
     Player *player = (self.players)[indexPath.row];
     cell.nameLabel.text = player.name;
@@ -68,6 +72,43 @@
     return cell;
 }
 
+#pragma mark - PlayerDetailsViewControllerDelegate
+
+
+- (void)playerDetailsViewControllerDidCancel:(PlayerDetailsViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)playerDetailsViewControllerDidSave:(PlayerDetailsViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"AddPlayer"]) {
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        PlayerDetailsViewController *playerDetailsViewController = [navigationController viewControllers][0];
+        playerDetailsViewController.delegate = self;
+    }
+}
+
+
+- (void)playerDetailsViewController:
+(PlayerDetailsViewController *)controller
+                       didAddPlayer:(Player *)player
+{
+    [self.players addObject:player];
+    NSIndexPath *indexPath =
+    [NSIndexPath indexPathForRow:[self.players count] - 1
+                       inSection:0];
+    [self.tableView insertRowsAtIndexPaths:
+     [NSArray arrayWithObject:indexPath]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

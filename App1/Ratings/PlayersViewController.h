@@ -7,13 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayerDetailsViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface PlayersViewController : UITableViewController
-
+@interface PlayersViewController : UITableViewController <PlayerDetailsViewControllerDelegate>
 @property (nonatomic, strong) NSMutableArray *players;
-
 @end
-
-NS_ASSUME_NONNULL_END
