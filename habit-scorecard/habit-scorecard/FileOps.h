@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *filepath;
 }
 
-@property(nonatomic,retain) NSFileManager *fileMgr;
+@property(nonatomic,retain) NSFileManager *fileManager;
 @property(nonatomic,retain) NSString *homeDir;
 @property(nonatomic,retain) NSString *filename;
 @property(nonatomic,retain) NSString *filepath;

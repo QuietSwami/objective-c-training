@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewHabitViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HabitViewController : UITableViewController
+@interface HabitViewController : UITableViewController <NewHabitViewControllerDelegate>
+@property (nonatomic, strong) NSMutableArray *habits;
 
 @end
 

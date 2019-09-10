@@ -7,16 +7,58 @@
 //
 
 #import "AppDelegate.h"
+#import "Habit.h"
+#import "HabitViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate (){
+    NSMutableArray *_habits;
+    NSString *_dateFormat;
+}
 
 @end
 
 @implementation AppDelegate
 
+- (NSDictionary *)get_todays_habits {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
+    // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
+    NSString *formatedDate = [dateFormatter stringFromDate:currentDate];
+    
+    NSDictionary *todaysHabits = [defaults dictionaryForKey:formatedDate];
+    return todaysHabits;
+}
+
+- (NSMutableArray *)load_data:(NSDictionary *)data {
+    NSMutableArray *pre_load = [NSMutableArray array];
+    for (NSString* key in data) {
+        NSDictionary *value = data[key];
+        Habit *new_habit = [[Habit alloc] init];
+        [new_habit load_habits:value date:key];
+        [pre_load addObject:new_habit];
+    }
+    return pre_load;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _habits = [NSMutableArray arrayWithCapacity:20];
+    _dateFormat = @"dd-MM-yyyy HH:mm:ss";
+    
+    NSDictionary *currentDate = self.get_todays_habits;
+    
+    _habits = [self.load_data currentDate];
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    
+    UINavigationController *navigationController = [tabBarController viewControllers][0];
+    
+    HabitViewController *habitViewController = [navigationController viewControllers][0];
+    
+    habitViewController.habits = _habits;
+    
     return YES;
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "HabitViewController.h"
+#import "HabitCell.h"
+#import "Habit.h"
 
 @interface HabitViewController ()
 
@@ -27,18 +29,74 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [self.habits count];
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Entrei Table View");
+    
+    HabitCell *cell = (HabitCell *)[tableView dequeueReusableCellWithIdentifier:@"HabitCell"];
+    
+    if (cell == nil) {
+        NSLog(@"Cell is empty");
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:@"HabitCell"];
+    }
+    
+    Habit *habit = (self.habits)[indexPath.row];
+    cell.habitName.text = habit.habitName;
+    cell.habitScore.text = habit.habitScore;
+    
+    return cell;
+}
+
+#pragma mark - NewHabitViewControllerDelegate
+
+- (void)newHabitViewControllerDidCancel:(NewHabitViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)newHabitViewControllerDidSave:(NewHabitViewController *)controller
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"newHabit"]) {
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        NewHabitViewController *newHabitViewController = [navigationController viewControllers][0];
+        newHabitViewController.delegate = self;
+    }
+}
+
+
+- (void)newHabitViewController:(NewHabitViewController *)controller didNewHabit:(Habit *)habit
+{
+    NSLog(@"Entrei didNewHabit em HabitViewController");
+    
+    [self.habits addObject:habit];
+    
+    [self.tableView reloadData];
+    
+//    NSLog(@"Habits Array Size: %lu", [self.habits count]);
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.habits count] - 1) inSection:0];
+//    NSLog(@"%@", indexPath);
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
     
     // Configure the cell...
     

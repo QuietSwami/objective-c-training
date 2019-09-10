@@ -11,8 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Habit : NSObject
-@property (nonatomic, weak) NSString *habitName;
-@property (nonatomic, weak) NSString *habitScore;
+
+@property (nonatomic, copy) NSString *habitName;
+@property (nonatomic, copy) NSString *habitScore;
+@property (nonatomic, copy) NSDate *habitDate;
+
+-(void)load_habits:(NSDictionary*)dict date:(NSString*)date;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,6 +9,7 @@
 #import "FileOps.h"
 
 @implementation FileOps
+
 @synthesize filename;
 @synthesize fileManager;
 @synthesize homeDir;
@@ -33,6 +34,7 @@
         NSLog(@"Error writing file at %@\n%@",filepath, [err localizedFailureReason]);
     }
 }
+
 -(NSString *) readFromFile{
     filepath = [[NSString alloc] init];
     NSError *error;

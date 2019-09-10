@@ -1,25 +1,33 @@
 //
-//  PlayerDetailsViewController.m
-//  Ratings
+//  NewHabitViewController.m
+//  habit-scorecard
 //
-//  Created by itsector on 04/09/2019.
+//  Created by itsector on 06/09/2019.
 //  Copyright © 2019 itsector. All rights reserved.
 //
 
-#import "PlayerDetailsViewController.h"
-#import "Player.h"
+#import "NewHabitViewController.h"
 
-@interface PlayerDetailsViewController ()
+@interface NewHabitViewController ()
 
 @end
 
-@implementation PlayerDetailsViewController {
-    NSString *_game;
+@implementation NewHabitViewController {
+    NSString *_value;
 }
 
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super initWithCoder:aDecoder])) {
+        NSLog(@"init NewHabitViewController");
+        _value = @"Value";
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.detailLabel.text = _game;
+    self.detailLabel.text = _value;
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -34,60 +42,46 @@
 
 - (IBAction)cancel:(id)sender
 {
-    [self.delegate playerDetailsViewControllerDidCancel:self];
+    NSLog(@"Carreguei Cancel");
+    [self.delegate newHabitViewControllerDidCancel:self];
 }
 
 - (IBAction)done:(id)sender
 {
-    Player *player = [[Player alloc] init];
-    player.name = self.nameTextField.text;
-    player.game = _game;  // only this line is changed
-    player.rating = 1;
+    NSLog(@"Carreguei Done");
+    Habit *habit = [[Habit alloc] init];
+    habit.habitName = self.habitNameTextField.text;
+    habit.habitScore = _value;
     
-    [self.delegate playerDetailsViewController:self didAddPlayer:player];
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0) {
-        [self.nameTextField becomeFirstResponder];
-    }
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    if ((self = [super initWithCoder:aDecoder])) {
-        NSLog(@"init PlayerDetailsViewController");
-        _game = @"Chess";
-    }
-    return self;
-}
-- (void)dealloc
-{
-    NSLog(@"dealloc PlayerDetailsViewController");
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
+    // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
+    habit.habitDate = [NSDate date];
+    
+    NSLog(@"%@", habit.habitName);
+    NSLog(@"%@", habit.habitScore);
+    NSLog(@"%@",[dateFormatter stringFromDate:habit.habitDate]);
+    
+    [self.delegate newHabitViewController:self didNewHabit:habit];
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"PickGame"]) {
-        GamePickerViewController *gamePickerViewController = segue.destinationViewController;
-        gamePickerViewController.delegate = self;
-        gamePickerViewController.game = _game;
+    if ([segue.identifier isEqualToString:@"PickValue"]) {
+        ValuePickerViewController *valuePickerViewController = segue.destinationViewController;
+        valuePickerViewController.delegate = self;
+        valuePickerViewController.value = _value;
     }
 }
 
-- (void)gamePickerViewController:(GamePickerViewController *)controller didSelectGame:(NSString *)game
+- (void)valuePickerViewController:(ValuePickerViewController *)controller didSelectValue:(NSString *)value
 {
-    _game = game;
-    self.detailLabel.text = _game;
+    _value = value;
+    self.detailLabel.text = _value;
     
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
-
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

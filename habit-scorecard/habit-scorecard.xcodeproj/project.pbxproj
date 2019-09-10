@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D33909C23226E8400782B9D /* NewHabitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D33909B23226E8400782B9D /* NewHabitViewController.m */; };
 		2D3D211C23213EBE003B34B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D211B23213EBE003B34B8 /* AppDelegate.m */; };
 		2D3D211F23213EBE003B34B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D211E23213EBE003B34B8 /* ViewController.m */; };
 		2D3D212223213EBE003B34B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3D212023213EBE003B34B8 /* Main.storyboard */; };
@@ -19,7 +20,7 @@
 		2D3D215123214171003B34B8 /* HabitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D215023214171003B34B8 /* HabitViewController.m */; };
 		2D3D2154232145D8003B34B8 /* HabitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D2153232145D8003B34B8 /* HabitCell.m */; };
 		2D3D215723214654003B34B8 /* Habit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D215623214654003B34B8 /* Habit.m */; };
-		2D3D215A232155D8003B34B8 /* FileOps.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D2159232155D8003B34B8 /* FileOps.m */; };
+		2D898D102326473D00EB02BB /* ValuePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D33909A23226E8400782B9D /* NewHabitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHabitViewController.h; sourceTree = "<group>"; };
+		2D33909B23226E8400782B9D /* NewHabitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHabitViewController.m; sourceTree = "<group>"; };
 		2D3D211723213EBE003B34B8 /* habit-scorecard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "habit-scorecard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D3D211A23213EBE003B34B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D3D211B23213EBE003B34B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,8 +66,8 @@
 		2D3D2153232145D8003B34B8 /* HabitCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HabitCell.m; sourceTree = "<group>"; };
 		2D3D215523214654003B34B8 /* Habit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Habit.h; sourceTree = "<group>"; };
 		2D3D215623214654003B34B8 /* Habit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
-		2D3D2158232155D8003B34B8 /* FileOps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileOps.h; sourceTree = "<group>"; };
-		2D3D2159232155D8003B34B8 /* FileOps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileOps.m; sourceTree = "<group>"; };
+		2D898D0E2326473D00EB02BB /* ValuePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValuePickerViewController.h; sourceTree = "<group>"; };
+		2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValuePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +134,10 @@
 				2D3D2153232145D8003B34B8 /* HabitCell.m */,
 				2D3D215523214654003B34B8 /* Habit.h */,
 				2D3D215623214654003B34B8 /* Habit.m */,
-				2D3D2158232155D8003B34B8 /* FileOps.h */,
-				2D3D2159232155D8003B34B8 /* FileOps.m */,
+				2D33909A23226E8400782B9D /* NewHabitViewController.h */,
+				2D33909B23226E8400782B9D /* NewHabitViewController.m */,
+				2D898D0E2326473D00EB02BB /* ValuePickerViewController.h */,
+				2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */,
 			);
 			path = "habit-scorecard";
 			sourceTree = "<group>";
@@ -286,12 +291,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D3D2154232145D8003B34B8 /* HabitCell.m in Sources */,
+				2D898D102326473D00EB02BB /* ValuePickerViewController.m in Sources */,
 				2D3D212523213EBE003B34B8 /* habit_scorecard.xcdatamodeld in Sources */,
 				2D3D211F23213EBE003B34B8 /* ViewController.m in Sources */,
 				2D3D215123214171003B34B8 /* HabitViewController.m in Sources */,
+				2D33909C23226E8400782B9D /* NewHabitViewController.m in Sources */,
 				2D3D212D23213EBF003B34B8 /* main.m in Sources */,
 				2D3D215723214654003B34B8 /* Habit.m in Sources */,
-				2D3D215A232155D8003B34B8 /* FileOps.m in Sources */,
 				2D3D211C23213EBE003B34B8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

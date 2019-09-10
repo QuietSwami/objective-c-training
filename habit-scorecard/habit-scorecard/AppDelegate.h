@@ -17,6 +17,7 @@
 
 - (void)saveContext;
 
+- (NSMutableArray*)load_data:(NSDictionary*)dict;
 
 @end
 
