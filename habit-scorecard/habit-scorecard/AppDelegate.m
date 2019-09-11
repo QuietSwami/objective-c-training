@@ -31,7 +31,7 @@
     return todaysHabits;
 }
 
-- (NSMutableArray *)load_data:(NSDictionary *)data {
+- (NSMutableArray *)loadData: (NSDictionary *) data {
     NSMutableArray *pre_load = [NSMutableArray array];
     for (NSString* key in data) {
         NSDictionary *value = data[key];
@@ -49,7 +49,9 @@
     
     NSDictionary *currentDate = self.get_todays_habits;
     
-    _habits = [self.load_data currentDate];
+    _habits = [self loadData:currentDate];
+    
+    NSLog(@"%@", _habits);
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     

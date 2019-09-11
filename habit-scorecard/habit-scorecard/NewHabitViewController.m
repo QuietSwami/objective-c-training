@@ -61,7 +61,7 @@
     NSLog(@"%@", habit.habitName);
     NSLog(@"%@", habit.habitScore);
     NSLog(@"%@",[dateFormatter stringFromDate:habit.habitDate]);
-    
+    habit.save;
     [self.delegate newHabitViewController:self didNewHabit:habit];
 }
 

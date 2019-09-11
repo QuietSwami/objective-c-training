@@ -16,8 +16,5 @@
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
 - (void)saveContext;
-
-- (NSMutableArray*)load_data:(NSDictionary*)dict;
-
 @end
 

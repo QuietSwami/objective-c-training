@@ -16,7 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *habitScore;
 @property (nonatomic, copy) NSDate *habitDate;
 
--(void)load_habits:(NSDictionary*)dict date:(NSString*)date;
+- (void) load_habits:(NSDictionary*)dict date:(NSString*)date;
+- (NSString) date_as_string;
+- (NSString) 
 @end
 
 NS_ASSUME_NONNULL_END
