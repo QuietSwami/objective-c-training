@@ -23,15 +23,16 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
     NSString *formatedDate = [dateFormatter stringFromDate:currentDate];
-    
+    NSLog(@"%@", formatedDate);
     NSDictionary *todaysHabits = [defaults dictionaryForKey:formatedDate];
+    NSLog(@"%@",todaysHabits);
     return todaysHabits;
 }
 
-- (NSMutableArray *)loadData: (NSDictionary *) data {
+- (NSMutableArray *)loadData:(NSDictionary *) data {
     NSMutableArray *pre_load = [NSMutableArray array];
     for (NSString* key in data) {
         NSDictionary *value = data[key];
@@ -45,7 +46,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _habits = [NSMutableArray arrayWithCapacity:20];
-    _dateFormat = @"dd-MM-yyyy HH:mm:ss";
+    _dateFormat = @"dd-MM-yyyy";
     
     NSDictionary *currentDate = self.get_todays_habits;
     
