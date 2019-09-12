@@ -11,11 +11,15 @@
 @implementation Habit
 
 - (void)load_habits:(NSDictionary *)dict date:(NSString *)date{
+    NSLog(@"%@", NSStringFromClass([dict class]));
     self.habitName = dict[@"habitName"];
+    NSLog(@"Teste 2");
     self.habitScore = dict[@"habitScore"];
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     NSDate *capturedStartDate = [dateFormatter dateFromString:date];
+    
     self.habitDate = capturedStartDate;
 }
 
@@ -32,18 +36,20 @@
 
 - (void) save {
     NSLog(@"Entrei no Save");
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%@", self.date_as_string);
+
     if ([[[defaults dictionaryRepresentation] allKeys] containsObject:self.date_as_string]){
-        NSLog(@"Key Existe");
-        NSArray *dateArray = [defaults arrayForKey:self.date_as_string];
+        NSArray *dateArray = [defaults valueForKey:self.date_as_string];
         NSDictionary *habit_dict = self.habit_to_dict;
-        [dateArray arrayByAddingObject:habit_dict];
-        [defaults setObject:dateArray forKey:self.date_as_string];
+
+        NSArray *newArr = [dateArray arrayByAddingObject:habit_dict];
+
+        [defaults setObject:newArr forKey:self.date_as_string];
         [defaults synchronize];
         
     } else {
-        NSLog(@"Key Não Existe");
+
         NSDictionary *habit_as_dict = self.habit_to_dict;
         NSArray *dateArray = [NSArray arrayWithObject:habit_as_dict];
         [defaults setObject:dateArray forKey:self.date_as_string];

@@ -26,18 +26,18 @@
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
     NSString *formatedDate = [dateFormatter stringFromDate:currentDate];
-    NSLog(@"%@", formatedDate);
-    NSDictionary *todaysHabits = [defaults dictionaryForKey:formatedDate];
-    NSLog(@"%@",todaysHabits);
+
+    NSDictionary *todaysHabits = [defaults valueForKey:formatedDate];
     return todaysHabits;
 }
 
-- (NSMutableArray *)loadData:(NSDictionary *) data {
+- (NSMutableArray *)loadData:(NSDictionary *) data{
+    NSLog(@"%@", data);
     NSMutableArray *pre_load = [NSMutableArray array];
-    for (NSString* key in data) {
-        NSDictionary *value = data[key];
+    for (NSDictionary* key in data) {
+        NSLog(@"%@", key);
         Habit *new_habit = [[Habit alloc] init];
-        [new_habit load_habits:value date:key];
+        [new_habit load_habits:key date:new_habit.date_as_string];
         [pre_load addObject:new_habit];
     }
     return pre_load;

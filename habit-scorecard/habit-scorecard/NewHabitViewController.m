@@ -54,13 +54,10 @@
     habit.habitScore = _value;
     
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
     habit.habitDate = [NSDate date];
-    
-    NSLog(@"%@", habit.habitName);
-    NSLog(@"%@", habit.habitScore);
-    NSLog(@"%@",[dateFormatter stringFromDate:habit.habitDate]);
+
     habit.save;
     [self.delegate newHabitViewController:self didNewHabit:habit];
 }
