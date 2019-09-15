@@ -20,6 +20,7 @@
 		2D3D215123214171003B34B8 /* HabitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D215023214171003B34B8 /* HabitViewController.m */; };
 		2D3D2154232145D8003B34B8 /* HabitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D2153232145D8003B34B8 /* HabitCell.m */; };
 		2D3D215723214654003B34B8 /* Habit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D215623214654003B34B8 /* Habit.m */; };
+		2D6A4F7D232BE68700BBA23B /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A4F7C232BE68700BBA23B /* Date.m */; };
 		2D898D102326473D00EB02BB /* ValuePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		2D3D2153232145D8003B34B8 /* HabitCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HabitCell.m; sourceTree = "<group>"; };
 		2D3D215523214654003B34B8 /* Habit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Habit.h; sourceTree = "<group>"; };
 		2D3D215623214654003B34B8 /* Habit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
+		2D6A4F7B232BE68700BBA23B /* Date.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
+		2D6A4F7C232BE68700BBA23B /* Date.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
 		2D898D0E2326473D00EB02BB /* ValuePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValuePickerViewController.h; sourceTree = "<group>"; };
 		2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValuePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,26 +121,15 @@
 		2D3D211923213EBE003B34B8 /* habit-scorecard */ = {
 			isa = PBXGroup;
 			children = (
+				2D6A4F7A232B811B00BBA23B /* Model */,
+				2D6A4F79232B810A00BBA23B /* Controller */,
+				2D6A4F78232B80F000BBA23B /* View */,
 				2D3D211A23213EBE003B34B8 /* AppDelegate.h */,
 				2D3D211B23213EBE003B34B8 /* AppDelegate.m */,
-				2D3D211D23213EBE003B34B8 /* ViewController.h */,
-				2D3D211E23213EBE003B34B8 /* ViewController.m */,
-				2D3D212023213EBE003B34B8 /* Main.storyboard */,
 				2D3D212623213EBF003B34B8 /* Assets.xcassets */,
-				2D3D212823213EBF003B34B8 /* LaunchScreen.storyboard */,
 				2D3D212B23213EBF003B34B8 /* Info.plist */,
 				2D3D212C23213EBF003B34B8 /* main.m */,
 				2D3D212323213EBE003B34B8 /* habit_scorecard.xcdatamodeld */,
-				2D3D214F23214171003B34B8 /* HabitViewController.h */,
-				2D3D215023214171003B34B8 /* HabitViewController.m */,
-				2D3D2152232145D8003B34B8 /* HabitCell.h */,
-				2D3D2153232145D8003B34B8 /* HabitCell.m */,
-				2D3D215523214654003B34B8 /* Habit.h */,
-				2D3D215623214654003B34B8 /* Habit.m */,
-				2D33909A23226E8400782B9D /* NewHabitViewController.h */,
-				2D33909B23226E8400782B9D /* NewHabitViewController.m */,
-				2D898D0E2326473D00EB02BB /* ValuePickerViewController.h */,
-				2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */,
 			);
 			path = "habit-scorecard";
 			sourceTree = "<group>";
@@ -158,6 +150,43 @@
 				2D3D214323213EBF003B34B8 /* Info.plist */,
 			);
 			path = "habit-scorecardUITests";
+			sourceTree = "<group>";
+		};
+		2D6A4F78232B80F000BBA23B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D3D212823213EBF003B34B8 /* LaunchScreen.storyboard */,
+				2D3D212023213EBE003B34B8 /* Main.storyboard */,
+				2D3D2152232145D8003B34B8 /* HabitCell.h */,
+				2D3D2153232145D8003B34B8 /* HabitCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D6A4F79232B810A00BBA23B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D898D0E2326473D00EB02BB /* ValuePickerViewController.h */,
+				2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */,
+				2D33909A23226E8400782B9D /* NewHabitViewController.h */,
+				2D33909B23226E8400782B9D /* NewHabitViewController.m */,
+				2D3D211D23213EBE003B34B8 /* ViewController.h */,
+				2D3D211E23213EBE003B34B8 /* ViewController.m */,
+				2D3D214F23214171003B34B8 /* HabitViewController.h */,
+				2D3D215023214171003B34B8 /* HabitViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D6A4F7A232B811B00BBA23B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D3D215523214654003B34B8 /* Habit.h */,
+				2D3D215623214654003B34B8 /* Habit.m */,
+				2D6A4F7B232BE68700BBA23B /* Date.h */,
+				2D6A4F7C232BE68700BBA23B /* Date.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +324,7 @@
 				2D3D212523213EBE003B34B8 /* habit_scorecard.xcdatamodeld in Sources */,
 				2D3D211F23213EBE003B34B8 /* ViewController.m in Sources */,
 				2D3D215123214171003B34B8 /* HabitViewController.m in Sources */,
+				2D6A4F7D232BE68700BBA23B /* Date.m in Sources */,
 				2D33909C23226E8400782B9D /* NewHabitViewController.m in Sources */,
 				2D3D212D23213EBF003B34B8 /* main.m in Sources */,
 				2D3D215723214654003B34B8 /* Habit.m in Sources */,

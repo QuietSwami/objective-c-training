@@ -10,57 +10,51 @@
 #import "Habit.h"
 #import "HabitViewController.h"
 
-@interface AppDelegate (){
-    NSMutableArray *_habits;
-    NSString *_dateFormat;
-}
+@interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-- (NSDictionary *)get_todays_habits {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDate *currentDate = [NSDate date];
-    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-    // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
-    NSString *formatedDate = [dateFormatter stringFromDate:currentDate];
+//- (NSDictionary *)get_todays_habits {
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSDate *currentDate = [NSDate date];
+//    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+//    // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
+//    NSString *formatedDate = [dateFormatter stringFromDate:currentDate];
+//
+//    NSDictionary *todaysHabits = [defaults valueForKey:formatedDate];
+//    return todaysHabits;
+//}
 
-    NSDictionary *todaysHabits = [defaults valueForKey:formatedDate];
-    return todaysHabits;
-}
-
-- (NSMutableArray *)loadData:(NSDictionary *) data{
-    NSLog(@"%@", data);
-    NSMutableArray *pre_load = [NSMutableArray array];
-    for (NSDictionary* key in data) {
-        NSLog(@"%@", key);
-        Habit *new_habit = [[Habit alloc] init];
-        [new_habit load_habits:key date:new_habit.date_as_string];
-        [pre_load addObject:new_habit];
-    }
-    return pre_load;
-}
+//- (NSMutableArray *)loadData:(NSDictionary *) data{
+//    NSLog(@"%@", data);
+//    NSMutableArray *pre_load = [NSMutableArray array];
+//    for (NSDictionary* key in data) {
+//        NSLog(@"%@", key);
+//        Habit *new_habit = [[Habit alloc] init];
+//        [new_habit load_habits:key date:new_habit.date_as_string];
+//        [pre_load addObject:new_habit];
+//    }
+//    return pre_load;
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    _habits = [NSMutableArray arrayWithCapacity:20];
-    _dateFormat = @"dd-MM-yyyy";
-    
-    NSDictionary *currentDate = self.get_todays_habits;
-    
-    _habits = [self loadData:currentDate];
-    
-    NSLog(@"%@", _habits);
+
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *formatedDate = [dateFormatter stringFromDate:currentDate];
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     
     UINavigationController *navigationController = [tabBarController viewControllers][0];
     
     HabitViewController *habitViewController = [navigationController viewControllers][0];
-    
-    habitViewController.habits = _habits;
+
+    habitViewController.date = formatedDate;
     
     return YES;
 }

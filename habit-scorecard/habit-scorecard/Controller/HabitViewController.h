@@ -12,8 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HabitViewController : UITableViewController <NewHabitViewControllerDelegate>
-@property (nonatomic, strong) NSMutableArray *habits;
-
+@property (nonatomic, strong) NSArray *habits;
+@property (nonatomic, strong) NSString *date;
 @end
 
 NS_ASSUME_NONNULL_END

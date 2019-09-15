@@ -18,12 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = self.date;
+    self.habits = [self get_habits_by_date:self.date];
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 #pragma mark - Table view data source
@@ -38,7 +35,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Entrei Table View");
     
     HabitCell *cell = (HabitCell *)[tableView dequeueReusableCellWithIdentifier:@"HabitCell"];
     
@@ -48,7 +44,8 @@
                                       reuseIdentifier:@"HabitCell"];
     }
     
-    Habit *habit = (self.habits)[indexPath.row];
+    Habit *habit = [[Habit alloc] init];
+    [habit load_habits:(self.habits)[indexPath.row] date:self.date];
     cell.habitName.text = habit.habitName;
     cell.habitScore.text = habit.habitScore;
     
@@ -75,25 +72,31 @@
         UINavigationController *navigationController = segue.destinationViewController;
         NewHabitViewController *newHabitViewController = [navigationController viewControllers][0];
         newHabitViewController.delegate = self;
+    
     }
 }
 
 
 - (void)newHabitViewController:(NewHabitViewController *)controller didNewHabit:(Habit *)habit
 {
-    NSLog(@"Entrei didNewHabit em HabitViewController");
     
-    [self.habits addObject:habit];
+    self.habits = [self.habits arrayByAddingObject:habit];
     
     [self.tableView reloadData];
     
-//    NSLog(@"Habits Array Size: %lu", [self.habits count]);
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.habits count] - 1) inSection:0];
-//    NSLog(@"%@", indexPath);
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+- (NSArray *) get_habits_by_date:(NSString *) date {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    NSArray *habits = [defaults valueForKey:self.date];
+    
+    return habits;
+}
+
+
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];

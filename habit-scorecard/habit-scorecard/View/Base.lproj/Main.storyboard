@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="1077" y="-145"/>
         </scene>
-        <!--Date-->
+        <!--Habit View Controller-->
         <scene sceneID="yNL-If-0rd">
             <objects>
                 <tableViewController id="3n4-9Q-vph" customClass="HabitViewController" sceneMemberID="viewController">
@@ -93,7 +93,8 @@
                             <outlet property="delegate" destination="3n4-9Q-vph" id="WHA-4P-bRq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Date" id="f40-cd-Ncd">
+                    <navigationItem key="navigationItem" id="f40-cd-Ncd">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="lPz-xd-SZs"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xfn-WZ-Xe3">
                             <connections>
                                 <segue destination="y4V-hc-KUL" kind="presentation" identifier="newHabit" modalTransitionStyle="coverVertical" id="O0G-1O-8qX"/>

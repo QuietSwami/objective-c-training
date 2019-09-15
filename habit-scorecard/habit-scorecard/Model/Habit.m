@@ -11,9 +11,7 @@
 @implementation Habit
 
 - (void)load_habits:(NSDictionary *)dict date:(NSString *)date{
-    NSLog(@"%@", NSStringFromClass([dict class]));
     self.habitName = dict[@"habitName"];
-    NSLog(@"Teste 2");
     self.habitScore = dict[@"habitScore"];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -28,6 +26,7 @@
 }
 
 - (NSString *) date_as_string {
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     NSString *capturedStartDate = [dateFormatter stringFromDate:self.habitDate];
