@@ -35,7 +35,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSLog(@"Entrei no cellForRow");
     HabitCell *cell = (HabitCell *)[tableView dequeueReusableCellWithIdentifier:@"HabitCell"];
     
     if (cell == nil) {
@@ -45,10 +45,22 @@
     }
     
     Habit *habit = [[Habit alloc] init];
-    [habit load_habits:(self.habits)[indexPath.row] date:self.date];
-    cell.habitName.text = habit.habitName;
-    cell.habitScore.text = habit.habitScore;
     
+    // When creating a new object, the object will be passed as a Habit object, so we need to check if the object being
+    //  inserted to the tableView is a dictionary or Habit.
+    if ([(self.habits)[indexPath.row] isKindOfClass: [habit class]]) {
+        
+        habit = (self.habits)[indexPath.row];
+        cell.habitName.text = habit.habitName;
+        cell.habitScore.text = habit.habitScore;
+        
+    } else {
+        
+        [habit load_habits:(self.habits)[indexPath.row] date:self.date];
+        cell.habitName.text = habit.habitName;
+        cell.habitScore.text = habit.habitScore;
+        
+    }
     return cell;
 }
 

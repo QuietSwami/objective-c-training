@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UITextField *habitNameTextField;
+@property (nonatomic, weak) NSArray *autocomplete;
 
 @property (nonatomic, weak) id <NewHabitViewControllerDelegate> delegate;
 

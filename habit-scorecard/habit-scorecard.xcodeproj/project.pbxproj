@@ -21,6 +21,7 @@
 		2D3D2154232145D8003B34B8 /* HabitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D2153232145D8003B34B8 /* HabitCell.m */; };
 		2D3D215723214654003B34B8 /* Habit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D215623214654003B34B8 /* Habit.m */; };
 		2D6A4F7D232BE68700BBA23B /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A4F7C232BE68700BBA23B /* Date.m */; };
+		2D757062232F76E40064A1E4 /* Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D757061232F76E40064A1E4 /* Autocomplete.m */; };
 		2D898D102326473D00EB02BB /* ValuePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		2D3D215623214654003B34B8 /* Habit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
 		2D6A4F7B232BE68700BBA23B /* Date.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
 		2D6A4F7C232BE68700BBA23B /* Date.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
+		2D757060232F76E40064A1E4 /* Autocomplete.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Autocomplete.h; sourceTree = "<group>"; };
+		2D757061232F76E40064A1E4 /* Autocomplete.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Autocomplete.m; sourceTree = "<group>"; };
 		2D898D0E2326473D00EB02BB /* ValuePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValuePickerViewController.h; sourceTree = "<group>"; };
 		2D898D0F2326473D00EB02BB /* ValuePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ValuePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +188,8 @@
 				2D3D215623214654003B34B8 /* Habit.m */,
 				2D6A4F7B232BE68700BBA23B /* Date.h */,
 				2D6A4F7C232BE68700BBA23B /* Date.m */,
+				2D757060232F76E40064A1E4 /* Autocomplete.h */,
+				2D757061232F76E40064A1E4 /* Autocomplete.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				2D3D212523213EBE003B34B8 /* habit_scorecard.xcdatamodeld in Sources */,
 				2D3D211F23213EBE003B34B8 /* ViewController.m in Sources */,
 				2D3D215123214171003B34B8 /* HabitViewController.m in Sources */,
+				2D757062232F76E40064A1E4 /* Autocomplete.m in Sources */,
 				2D6A4F7D232BE68700BBA23B /* Date.m in Sources */,
 				2D33909C23226E8400782B9D /* NewHabitViewController.m in Sources */,
 				2D3D212D23213EBF003B34B8 /* main.m in Sources */,

@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Date : NSObject
-@property (NSDate) *date;
+@property (nonatomic, strong) NSDate *date;
+- (NSArray *) possible_dates;
+- (void) update_dates:(NSString *)date;
 @end
 
 NS_ASSUME_NONNULL_END

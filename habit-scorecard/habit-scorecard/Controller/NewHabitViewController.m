@@ -7,6 +7,8 @@
 //
 
 #import "NewHabitViewController.h"
+#import "Autocomplete.h"
+#import "Date.h"
 
 @interface NewHabitViewController ()
 
@@ -25,16 +27,15 @@
     }
     return self;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.detailLabel.text = _value;
-
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    Autocomplete *ac = [[Autocomplete alloc] init];
+    self.autocomplete = [ac possible_autocomplete];
+    NSLog(@"Autocomplete Options: %@", self.autocomplete);
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - Table view data source
@@ -53,12 +54,20 @@
     habit.habitName = self.habitNameTextField.text;
     habit.habitScore = _value;
     
-    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
-    // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
-    habit.habitDate = [NSDate date];
 
+    habit.habitDate = [NSDate date];
+    NSLog(@"%@", habit);
     habit.save;
+    
+    Autocomplete *ac = [[Autocomplete alloc] init];
+    [ac update_habits:habit.habitName];
+    
+    Date *d = [[Date alloc] init];
+    [d update_dates:[dateFormater stringFromDate:habit.habitDate]];
+    
+    
     [self.delegate newHabitViewController:self didNewHabit:habit];
 }
 
@@ -79,6 +88,7 @@
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

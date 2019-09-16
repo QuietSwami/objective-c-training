@@ -42,11 +42,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    
+    
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd-MM-yyyy"];
     NSString *formatedDate = [dateFormatter stringFromDate:currentDate];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    if ( ![[[defaults dictionaryRepresentation]allKeys] containsObject:@"habits"]) {
+        NSArray *arr = [NSArray array];
+        [defaults setObject:arr forKey:@"habits"];
+    }
+    
+    if ( ![[[defaults dictionaryRepresentation]allKeys] containsObject:@"dates"]) {
+        NSArray *arr = [NSArray array];
+        [defaults setObject:arr forKey:@"dates"];
+    }
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     
