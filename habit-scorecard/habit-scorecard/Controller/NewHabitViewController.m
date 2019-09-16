@@ -50,6 +50,7 @@
 - (IBAction)done:(id)sender
 {
     NSLog(@"Carreguei Done");
+    
     Habit *habit = [[Habit alloc] init];
     habit.habitName = self.habitNameTextField.text;
     habit.habitScore = _value;
